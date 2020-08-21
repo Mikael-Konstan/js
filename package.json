@@ -4,6 +4,7 @@
   "description": "h5&js&css",
   "main": "index.js",
   "directories": {
+    "build": "",
     "test": "test"
   },
   "scripts": {
