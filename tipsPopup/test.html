@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html{
+        height: 100%;
+        width: 100%;
+      }
+      body{
+        height: 100%;
+        width: 100%;
+        /* height: 100vh; */
+        /* width: 100vw; */
+      }
+      #alertBox{
+        display: none;
+        width: 100px;
+        height: 100px;
+        background-color: firebrick;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn1" onclick="alertBoxFn();stopBubble()">打开弹窗</button>
+    <div id="alertBox" onclick="stopBubble()"></div>
+
+    <button id="btn2" onclick="alertBoxFn();stopBubble()">打开弹窗</button>
+    <div id="alertBox2" onclick="stopBubble()"></div>
+  </body>
+  <script>
+    let alertBox = document.getElementById('alertBox')
+    function alertBoxFn(e) {
+      alertBox.style.display = 'block'
+    }
+    function stopBubble(e) {
+      var e = e || window.event
+      e.stopPropagation()
+    }
+    
+    document.body.addEventListener('click', function () {
+      alertBox.style.display = 'none'
+      // console.log(1)
+      // alert(2)
+    })
+    // document.body.addEventListener('click', function () {
+    //   alert(1)
+    // })
+    // alertBox.style.display = 'block'
+    // console.log(3)
+    // alert(3)
+  </script>
+</html>

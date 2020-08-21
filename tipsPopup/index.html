@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn" onclick="alertBoxFn()">打开弹窗</button>
+    <div id="alertBox" onclick="outside=false"></div>
+  </body>
+</html>
+<script>
+  var outside = true
+  function alertBoxFn(e) {
+    outside = false
+    alertBox.style.display = 'block'
+  }
+
+  //以下两个方法用于判断是点击按钮和弹框，还是弹框外面，如果点击弹框外面隐藏弹框，注document.body必须要在文档后面写，在head写documnet.body为null
+  document.body.addEventListener(
+    'click',
+    function () {
+      outside = true
+    },
+    true
+  )
+  document.body.addEventListener('click', function () {
+    if (outside) {
+      alertBox.style.display = 'none'
+    }
+  })
+</script>

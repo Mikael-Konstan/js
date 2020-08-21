@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      height: 200px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <p></p>
+  <span></span>
+</body>
+</html>
+<script>
+  let dom = document.getElementsByClassName('box')[0]
+  let timer = setTimeout(function(){
+    dom.style.background = '#ccc'
+    console.log('test1')
+  }, 1000)
+
+  timer = setTimeout(function(){
+    dom.style.background = '#ccc'
+    console.log(timer, '编号')
+  }, 4000)
+
+  let timer2 = setTimeout(function(){
+    dom.style.background = 'red'
+    console.log('test2')
+  }, 3000)
+  // dom.setAttribute('debounce', setTimeout(function(){
+  //   dom.style.background = 'red'
+  //   console.log('test2')
+  // }, 2000))
+  // clearTimeout(dom.getAttribute('debounce'))
+  // console.log(dom.getAttribute('debounce'))
+
+  // dom.setAttribute('debounce', timer)
+  // clearTimeout(dom.getAttribute('debounce'))
+  // console.log(dom.getAttribute('debounce'))
+  // console.log(dom.getAttribute('debounce2'))
+
+  // setTimeout(function(){
+  //   console.log(timer, 'timer')
+  //   clearTimeout(timer)
+  //   clearTimeout(timer2)
+  // },2000)
+document.body.setAttribute('test', 'aaa')
+console.log(document.body.getAttribute('test'))
+
+let obj = {
+  a: '2'
+}
+let b = 2
+console.log('obj', Object.prototype.toString.call(obj))
+console.log('b', Object.prototype.toString.call(b))
+console.log('b', Object.prototype.toString.call(dom))
+console.log('b', Object.prototype.toString.call(document.body))
+console.log('b', Object.prototype.toString.call(document.getElementsByTagName('p')))
+console.log('b', Object.prototype.toString.call(document.getElementsByTagName('p')[0]))
+console.log('b', Object.prototype.toString.call(document.getElementsByTagName('span')))
+console.log('b', Object.prototype.toString.call(document.getElementsByTagName('span')[0]))
+</script>

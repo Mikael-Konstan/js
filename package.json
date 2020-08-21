@@ -1,0 +1,26 @@
+{
+  "name": "h5",
+  "version": "1.0.0",
+  "description": "h5&js&css",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/mikael-study/mikael_h5.git"
+  },
+  "keywords": [
+    "mikael",
+    "h5"
+  ],
+  "author": "mikael_konstan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/mikael-study/mikael_h5/issues"
+  },
+  "homepage": "https://gitlab.com/mikael-study/mikael_h5#readme"
+}

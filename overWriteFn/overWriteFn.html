@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>testOverWriteFn</title>
+  </head>
+  <body>
+    <div id="box" style="width: 20px; height: 20px; background: red;"></div>
+    <ul>
+      <li style="height: 30px;" class="liSel">1</li>
+      <li style="height: 30px;" class="liSel">2</li>
+    </ul>
+
+    <picture>
+      <source media="(min-width: 1250px)" srcset="https://static.runoob.com/images/mix/img_avatar.png">
+      <source media="(min-width: 950px)" srcset="https://static.runoob.com/images/mix/html-css-js.png">
+      <source media="(min-width: 450px)" srcset="https://static.runoob.com/images/mix/htmlbig.png">
+      <img src="https://static.runoob.com/images/mix/img_avatar.png"  style="width:auto;">
+    </picture>
+  </body>
+</html>
+<script src="./overWriteFn.js"></script>
+<script>
+  let obj1 = {
+    a: 1,
+    printA: function (test, test2) {
+      console.log(test, test2, this.a)
+    },
+  }
+  let obj2 = {
+    a: 2,
+  }
+  obj1.printA('test1', 'test1+')
+
+  obj1.printA.mikaelCall(obj2, 'test2', 'test2+')
+
+  obj1.printA.mikaelApply(obj2, ['test2', 'test2+'])
+
+  let Fn = obj1.printA.mikaelBind(obj2, 'test2')
+  Fn('test2+')
+
+  let i = 0
+  arr = [1, 2, 3, 4, 5]
+  function test() {
+    while (true) {
+      console.log(arr[i])
+      if (arr[i] === 3) {
+        return true
+      }
+      i++
+    }
+  }
+  test()
+
+  let obj3 = {}
+  console.log(obj3 instanceof Object)
+  console.log(Instanceof(obj3, Object))
+
+  let obj4 = {
+    a: 4
+  }
+  let obj5 = Object.create(obj4)
+  console.log(obj5, obj5.a)
+  let obj6 = Create(obj4)
+  console.log(obj6, obj6.a)
+
+  let obj7 = delegate(document.getElementsByTagName('ul')[0], 'click', 'li.liSel', function(e){
+    console.log(e.target)
+  })
+  console.log(obj7)
+
+  function curr(a, b, c){
+    return a + b + c
+  }
+  console.log(curr(3, 4, 5))
+  console.log(currying(curr, 3)()(3), 'currying')
+  console.log(currying(curr, 3)(4)()(2), 'currying')
+  console.log(currying(curr, 3)(4)(5), 'currying')
+
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>throttle</title>
+  </head>
+  <body>
+    <div
+      style="width: 200px; height: 300px; background-color: red;"
+      id="box"
+    ></div>
+  </body>
+</html>
+<script>
+  let btnDom = document.getElementById('box')
+  // btnDom.setAttribute('throttle', false)
+  // setTimeout(function(){
+  //   btnDom.style.backgroundColor = 'black'
+  //   btnDom.setAttribute('throttle', true)
+  // },3000)
+
+  btnDom.addEventListener('click', function () {
+    let _that = this
+    throttle(
+      this,
+      3000,
+      succerrHandle('success'),
+      errorHandle,
+    )
+  })
+
+  function throttle(
+    _that = document.getElementsByTagName('body')[0],
+    delay,
+    success = function () {
+      // console.log('执行成功')
+    },
+    error
+  ) { 
+    if(_that == windows) _that = document.getElementsByTagName('body')[0]
+    let Now = Date.now()
+    let pastTime = _that.getAttribute('throttle')
+    if (pastTime) {
+      pastTime = parseInt(pastTime)
+      if (Now - pastTime < parseInt(delay)) return error() // 设定时间内返回
+    }
+    _that.setAttribute('throttle', Now)
+    success()
+  }
+
+  function succerrHandle(info) {
+    console.log('执行成功' + info)
+  }
+  function errorHandle() {
+    console.log('请勿频繁操作')
+  }
+</script>

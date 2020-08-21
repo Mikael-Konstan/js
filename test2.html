@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head></head>
+<link rel="stylesheet" href="./specialStyle.css" />
+<style>
+  .box1 {
+    width: 200px;
+    height: 300px;
+    overflow: auto;
+    border: 1px solid #333;
+  }
+  .box2 {
+    width: 100%;
+    height: 400px;
+    /* background-color: red; */
+  }
+</style>
+<body>
+  <div class="box1">
+    <div class="box2" id="div"></div>
+  </div>
+  <canvas id="glcanvas" width="600" height="460">
+    Oh no! Your browser doesn't support canvas!
+  </canvas>
+</body>
+<script src="./publicFun.js"></script>
+<script>
+  // import Vue from 'vue'
+  let arr = [1, 2, 3]
+  console.log(arr)
+  arr.forEach((item, index, ary) => {
+    arr[index] = ++item
+  })
+  console.log(arr)
+  // arr.map((item)=>{
+  //     return ++item
+  // })
+  // console.log(arr)
+  // arr.filter((item)=>{
+  //     return ++item
+  // })
+  // console.log(arr)
+
+  var doc = document.getElementById('div')
+  setTimeout(
+    function () {
+      doc.style.backgroundColor = 'red'
+    },
+    10000,
+    setTimeout(function () {
+      doc.style.backgroundColor = 'black'
+    }, 5000)
+  )
+
+  let obj = {
+    a: '  ddd',
+    b: 'sss   ',
+  }
+  console.log(obj)
+  Object.keys(obj).forEach((item) => {
+    console.log(item)
+    if (typeof obj[item] === 'string') obj[item] = obj[item].trim()
+  })
+  console.log(obj)
+
+  let object1 = {
+    a: 2
+  }
+  let object2 = {
+    ...object1,
+    a: 3
+  }
+  console.log(object2, 'object2')
+</script>
+<script id="fragment-shader" type="x-shader/x-fragment">
+    #ifdef GL_ES
+      precision highp float;
+    #endif
+  
+    uniform vec4 uGlobalColor;
+  
+    void main() {
+      gl_FragColor = uGlobalColor;
+    }
+  </script>

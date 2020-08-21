@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>copy</title>
+    <style>
+      header {
+        text-align: right;
+        padding-right: 10%;
+        height: 60px;
+        line-height: 60px;
+        /* background-color: #24292e; */
+        cursor: pointer;
+      }
+      header a {
+        color: #fff;
+        color: #24292e;
+        font-size: 28px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+    </style>
+    <style>
+      body {
+        text-align: center;
+        font-size: 18px;
+      }
+      .copy {
+        width: 679px;
+        /* height: 48px; */
+        border-radius: 24px;
+        border: 1px solid rgba(23, 125, 255, 1);
+        line-height: 48px;
+        margin-top: 66px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 22px;
+        margin: 66px auto 40px;
+      }
+      .copy span:last-child {
+        display: inline-block;
+        width: 148px;
+        /* height: 48px; */
+        background: rgba(23, 125, 255, 1);
+        border: 1px solid rgba(23, 125, 255, 1);
+        color: rgba(255, 255, 255, 1);
+        border-radius: 24px;
+        cursor: pointer;
+        text-align: center;
+      }
+      input {
+        width: 677px;
+        height: 46px;
+        border: none;
+        border: 1px solid rgba(23, 125, 255, 1);
+        border-radius: 24px;
+        cursor: pointer;
+        outline: none;
+        font-size: 18px;
+        padding-left: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="./../index.html">首页</a>
+    </header>
+    <!-- <img src="./myson.jpg" style="width: 40%;" alt="" /> -->
+    <!-- <span>许世峰在此。</span> -->
+    <div class="copy">
+      <span id="copyLink">Welcome to Mikael_Konstan!</span>
+      <!-- <span id="copyLink">
+        吾儿 许世峰何在？
+      </span> -->
+      <span class="copyBtn">Copy</span>
+    </div>
+    <div class="copy">
+      <span id="copyLink2">https://cn.vuejs.org/v2/api/</span>
+      <span class="copyBtn2">复制链接</span>
+    </div>
+    <input type="text" />
+  </body>
+</html>
+<script>
+  document.getElementsByClassName('copyBtn')[0].onclick = function () {
+    let text = document.getElementById('copyLink').innerHTML
+    copyText(text)
+  }
+
+  document.getElementsByClassName('copyBtn2')[0].onclick = function () {
+    let text = document.getElementById('copyLink2').innerHTML
+    copyText(text)
+  }
+
+  function copyText(text) {
+    // text 复制的内容
+    var textCopy = document.createElement('textarea')
+    textCopy.value = text
+    // textCopy.style.position = 'fixed'
+    // textCopy.style.zIndex = -1
+    // textCopy.style.top = '0'
+    // textCopy.style.left = '0'
+    // textCopy.style.width = '1rem'
+    // textCopy.style.height = '1rem'
+    // textCopy.style.padding = '0'
+    // textCopy.style.margin = '0'
+    // textCopy.style.border = 'none'
+    // textCopy.style.outline = 'none'
+    // textCopy.style.boxShadow = 'none'
+    // textCopy.style.background = 'transparent'
+    document.body.appendChild(textCopy)
+    textCopy.select() // 表单输入框拥有的方法 select()  达到选中状态
+    try {
+      if (document.execCommand('Copy', 'false', null)) {
+        // execCommand 浏览器所有菜单功能API  参数二 是否显示对话框
+        alert('复制成功！')
+      } else {
+        alert('复制失败！')
+      }
+      document.body.removeChild(textCopy)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  //  需要注意的是：
+
+  // 1、input 不可以添加 disabled 属性
+
+  // 2、input的 width 和 height 不能为0
+
+  // 3、input框不能有hidden属性
+
+  // 4、input display不可设为 none  可设 opacity
+</script>
