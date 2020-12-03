@@ -1,19 +1,26 @@
 <!DOCTYPE html>
-<head></head>
-<link rel="stylesheet" href="./specialStyle.css">
-<style>
-    .box1{
-        width: 200px;
-        height: 300px;
-        overflow: auto;
-        border: 1px solid #333;
-    }
-    .box2{
-        width: 100%;
-        height: 400px;
-        background-color: red;
-    }
-</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../public/specialStyle.css">
+    <style>
+        .box1{
+            width: 200px;
+            height: 300px;
+            overflow: auto;
+            border: 1px solid #333;
+        }
+        .box2{
+            width: 100%;
+            height: 400px;
+            background-color: red;
+        }
+    </style>
+    <title>Document</title>
+
+</head>
+
 <body>
     <div class="box1">
         <div class="box2">
@@ -21,4 +28,9 @@
         </div>
     </div>
 </body>
-<script src="./publicFun.js"></script>
+<!-- <script src="./../public/publicFn.js"></script> -->
+</html>
+<script>
+    let obj = {}
+    console.log(JSON.stringify(obj)) // {}
+</script>
