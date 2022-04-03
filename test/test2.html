@@ -39,16 +39,23 @@
   //     return ++item
   // })
   // console.log(arr)
+  let timer = 0;
 
   var doc = document.getElementById('div')
-  setTimeout(
-    function () {
+  let timer2 = setTimeout(
+    function (a) {
+      console.log('aaaa', a)
+      timer = new Date().getTime()
       doc.style.backgroundColor = 'red'
     },
-    10000,
+    3000,
     setTimeout(function () {
+      console.log('a')
+      timer = new Date().getTime() - timer;
+      console.log(timer)
+      // clearTimeout(timer2)
       doc.style.backgroundColor = 'black'
-    }, 5000)
+    }, 2000)
   )
 
   let obj = {
