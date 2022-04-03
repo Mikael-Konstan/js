@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "h5&js&css",
   "main": "index.js",
+  "dependencies": {
+    "heap": "^0.2.6",
+    "lodash.debounce": "^4.0.8"
+  },
   "directories": {
     "build": "",
     "test": "test"
